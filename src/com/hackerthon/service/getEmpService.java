@@ -52,7 +52,7 @@ public class getEmpService extends UtilC {
 		}
 	}
 
-	public void eMPLOYEEtABLEcREATE() {
+	public void createEmployeeTable() {
 		try {
 			s = c.createStatement();
 			s.executeUpdate(UtilQ.Q("q2"));
@@ -61,7 +61,7 @@ public class getEmpService extends UtilC {
 		}
 	}
 
-	public void eMPLOYEESaDD() {
+	public void addEmployee() {
 		try {
 			ps = c.prepareStatement(UtilQ.Q("q3"));
 			c.setAutoCommit(false);
@@ -114,7 +114,7 @@ public class getEmpService extends UtilC {
 		}
 	}
 
-	public void eMPLOYEEdISPLAY() {
+	public void displayEmployee() {
 
 		ArrayList<Employee> l = new ArrayList<Employee>();
 		try {
