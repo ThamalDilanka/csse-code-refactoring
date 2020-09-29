@@ -27,11 +27,11 @@ public class EmployeeServiceImpl extends UtilC {
 
 		try {
 			
-			int size = UtilTRANSFORM.XMLXPATHS().size();
+			int size = UtilTRANSFORM.xmlxPaths().size();
 			
 			for (int i = 0; i < size; i++) {
 				
-				Map<String, String> l = UtilTRANSFORM.XMLXPATHS().get(i);
+				Map<String, String> l = UtilTRANSFORM.xmlxPaths().get(i);
 				
 				Employee employee = new Employee();
 				

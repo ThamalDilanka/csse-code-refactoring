@@ -74,5 +74,55 @@ public class CommonConstants {
 	
 	/** Constant for row break line of employee table */
 	public static final String EMPLOYEE_TABLE_ROW_BREAK_LINE = "-------------------------------------------------------------------------------------------------------------------------------------";
+
+	/** Constant for xpath employee id key*/
+	public static final String XPATH_EMPLOYEE_KEY_ID = "XpathEmployeeIDKey";
 	
+	/** Constant for xpath employee name key*/
+	public static final String XPATH_EMPLOYEE_NAME_KEY = "XpathEmployeeNameKey";
+	
+	/** Constant for xpath emoplyee address ke*/
+	public static final String 	XPATH_EMPLOYEE_ADDRESS_KEY = "XpathEmployeeAddressKey";
+	
+	/**	Constant for xpath employee faculty name*/
+	public static final String  XPATH_EMPLOYEE_FACULTY_NAME = "XpathFacultyNameKey";
+	
+	/** Constant for xpath employee department key*/
+	public static final String XPATH_EMPLOYEE_DEPARTMENT_KEY = "XpathDepartmentKey";
+
+	/** Constant for xpath employee designation key*/
+	public static final String XPATH_EMPLOYEE_DESIGNATION_KEY = "XpathDesignationKey";
+
+	/** Constant for file path employee request xml*/
+	public static final String SRC_EMPLOYEE_XML_REQUEST = "src/com/hackerthon/config/EmployeeRequest.xml";
+	
+	/** Constant for file apth employee modified xsl*/
+	public static final String SRC_EMPLOYEE_XSL_MODIFIED = "src/com/hackerthon/config/Employee-modified.xsl";
+	
+	/** Constant for file path employee response xml*/
+	public static final String SRC_EMPLOYEE_XML_RESPONSE = "src/com/hackerthon/config/EmployeeResponse.xml";
+	
+	/** Constant for count compile path*/
+	public static final String COMPLIE_COUNT_EMPLOYEE = "count(//Employees/Employee)";
+	
+	/** Constant for employee compile path*/
+	public static final String COMPLIE_EMPLOYEES_EMPLOYEES= "//Employees/Employee[";
+	
+	/** Constant for employee id compile path*/
+	public static final String COMPILE_EMOPLYEES_EMOPLYEE_ID = "]/EmployeeID/text()";
+	
+	/** Constant for emoplyee name compile path*/
+	public static final String COMPILE_EMOPLYEES_EMOPLYEE_NAME = "]/EmployeeFullName/text()";
+	
+	/** Constant for employee address compile path*/
+	public static final String COMPILE_EMOPLYEES_EMOPLYEE_ADDRESS = "]/EmployeeFullAddress/text()";
+	
+	/** Constant for employee faculty name compile path*/
+	public static final String COMPILE_EMOPLYEES_EMOPLYEE_FACULTY_NAME = "]/FacultyName/text()";
+	
+	/** Constant for employee department compile path*/
+	public static final String COMPILE_EMOPLYEES_EMOPLYEE_DEPARTMENT = "]/Department/text()";
+
+	/** Constant for employee designation compile path*/
+	public static final String COMPILE_EMOPLYEES_EMOPLYEE_DESIGNATION = "]/Designation/text()";
 }
