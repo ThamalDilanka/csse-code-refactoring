@@ -1,7 +1,7 @@
 package com.hackerthon.main;
 
 import com.hackerthon.common.UtilTRANSFORM;
-import com.hackerthon.service.getEmpService;
+import com.hackerthon.service.EmployeeServiceImpl;
 
 import java.util.logging.Logger;
 
@@ -15,19 +15,17 @@ public class ExecuteMain {
 		/******************** Mm danna log line add karanne mehema ***********************/
 		Logger LOGGER = Logger.getLogger(ExecuteMain.class.getName());
 
-		LOGGER.info("Sample info msg");
-		LOGGER.warning("Sample warning msg");
+//		LOGGER.info("Sample info msg");
+//		LOGGER.warning("Sample warning msg");
 		/********************************************/
 
-		getEmpService employeeService = new getEmpService();
+		EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
 		try {
 			UtilTRANSFORM.rEQUESTtRANSFORM();
-			employeeService.employeeFromXML();
-			employeeService.createEmployeeTable();
+			employeeService.employeesFromXML();
+			employeeService.createEmployeesTable();
 			employeeService.addEmployee();
-//			employeeService.eMPLOYEEGETBYID("EMP10004");
-//			employeeService.EMPLOYEEDELETE("EMP10001");
-			employeeService.displayEmployee();
+//			employeeService.displayEmployee();
 		} catch (Exception e) {
 		}
 
