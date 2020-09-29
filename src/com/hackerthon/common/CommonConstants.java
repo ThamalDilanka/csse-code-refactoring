@@ -1,0 +1,78 @@
+package com.hackerthon.common;
+
+/**
+ * This class contains common constants for the project
+ * 
+ * @author Kavindu Tharaka
+ * @version 1.1
+ */
+
+public class CommonConstants {
+	
+	/** Constant for config.properties key for query file path */
+	public static final String QUERY_XML = "QueryFilePath";
+	
+	/** Constant for file path of config.properties*/
+	public static final String PROPERTY_FILE = "../config/config.properties";
+
+	/** Constant for query tag in EmployeeQuery.xml */
+	public static final String TAG_NAME = "query";
+	
+	/** Constant for query id in EmployeeQuery.xml */
+	public static final String ATTRIBUTE_ID = "id";
+	
+	/** Constant for comma */
+	public static final String COMMA = ",";
+	
+	/** Constant for url key of MYSQL database in config.properties */
+	public static final String URL = "url";
+	
+	/** Constant for user name key of MYSQL database in config.properties */
+	public static final String USERNAME = "username";
+	
+	/** Constant for password key of MYSQL database in config.properties */
+	public static final String PASSWORD = "password";
+	
+	/** Constant for driver name key of MYSQL database in config.properties */
+	public static final String DRIVER_NAME = "driverName";
+	
+	/** Constant for query id of drop_table in EmployeeQuery.xml */
+	public static final String QUERY_ID_DROP_TABLE = "drop_table";
+	
+	/** Constant for query id of create_table in EmployeeQuery.xml */
+	public static final String QUERY_ID_CREATE_TABLE = "create_employee_table";
+	
+	/** Constant for query id of insert employees in EmployeeQuery.xml */
+	public static final String QUERY_ID_INSERT_EMPLOYEES = "insert_employee";
+	
+	/** Constant for column index one */
+	public static final int COLUMN_INDEX_ONE = 1;
+	
+	/** Constant for column index two */
+	public static final int COLUMN_INDEX_TWO = 2;
+	
+	/** Constant for column index three */
+	public static final int COLUMN_INDEX_THREE = 3;
+	
+	/** Constant for column index four */
+	public static final int COLUMN_INDEX_FOUR = 4;
+	
+	/** Constant for column index five */
+	public static final int COLUMN_INDEX_FIVE = 5;
+	
+	/** Constant for column index six */
+	public static final int COLUMN_INDEX_SIX = 6;
+	
+	/** Constant for columns of employee table */
+	public static final String EMPLOYEE_TABLE_COLUMNS = "Employee ID\t\tFull Name\t\tAddress\t\tFaculty Name\t\tDepartment\t\tDesignation\n%n";
+	
+	/** Constant for cell order in a row of employee table */
+	public static final String EMPLOYEE_TABLE_COLUMN_ORDER_IN_ROW = "%s\t%s\t\t%s\t%s\t%s\t%s\n%n";
+	
+	/** Constant for heading break line of employee table */
+	public static final String EMPLOYEE_TABLE_COLUMNS_BREAK_LINE = "=================================================================================================================================";
+	
+	/** Constant for row break line of employee table */
+	public static final String EMPLOYEE_TABLE_ROW_BREAK_LINE = "-------------------------------------------------------------------------------------------------------------------------------------";
+	
+}
