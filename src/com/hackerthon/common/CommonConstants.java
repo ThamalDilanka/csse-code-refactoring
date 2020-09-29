@@ -125,4 +125,8 @@ public class CommonConstants {
 
 	/** Constant for employee designation compile path*/
 	public static final String COMPILE_EMOPLYEES_EMOPLYEE_DESIGNATION = "]/Designation/text()";
+	
+	
+	/** Constnt for file path query xml */
+	public static final String SRC_EMOPLOYEE_QUERY_XML= "src/com/hackerthon/config/EmployeeQuery.xml";
 }
