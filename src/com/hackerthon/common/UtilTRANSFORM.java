@@ -30,35 +30,35 @@ public class UtilTRANSFORM extends UtilC {
 
 	private static Map<String, String> m = null;
 
-	public static void rEQUESTtRANSFORM() throws Exception {
+	public static void requestTransform() throws Exception {
 
-		Source x = new StreamSource(new File("src/com/hackerthon/config/EmployeeRequest.xml"));
-		Source s = new StreamSource(new File("src/com/hackerthon/config/Employee-modified.xsl"));
-		Result o = new StreamResult(new File("src/com/hackerthon/config/EmployeeResponse.xml"));
-		TransformerFactory.newInstance().newTransformer(s).transform(x, o);
+		Source requestSource = new StreamSource(new File(CommonConstants.SRC_EMPLOYEE_XML_REQUEST));
+		Source modifiedSource = new StreamSource(new File(CommonConstants.SRC_EMPLOYEE_XSL_MODIFIED));
+		Result responseSource = new StreamResult(new File(CommonConstants.SRC_EMPLOYEE_XML_RESPONSE));
+		TransformerFactory.newInstance().newTransformer(modifiedSource).transform(requestSource, responseSource);
 	}
 
-	public static ArrayList<Map<String, String>> XMLXPATHS() throws Exception {
+	public static ArrayList<Map<String, String>> xmlxPaths() throws Exception {
 
-		Document d = DocumentBuilderFactory.newInstance().newDocumentBuilder()
-				.parse("src/com/hackerthon/config/EmployeeResponse.xml");
+		Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder()
+				.parse(CommonConstants.SRC_EMPLOYEE_XML_RESPONSE);
 		XPath x = XPathFactory.newInstance().newXPath();
-		int n = Integer.parseInt((String) x.compile("count(//Employees/Employee)").evaluate(d, XPathConstants.STRING));
+		int n = Integer.parseInt((String) x.compile("count(//Employees/Employee)").evaluate(document, XPathConstants.STRING));
 		for (int i = 1; i <= n; i++) {
 			m = new HashMap<String, String>();
-			m.put("XpathEmployeeIDKey", (String) x.compile("//Employees/Employee[" + i + "]/EmployeeID/text()")
-					.evaluate(d, XPathConstants.STRING));
-			m.put("XpathEmployeeNameKey", (String) x.compile("//Employees/Employee[" + i + "]/EmployeeFullName/text()")
-					.evaluate(d, XPathConstants.STRING));
-			m.put("XpathEmployeeAddressKey",
-					(String) x.compile("//Employees/Employee[" + i + "]/EmployeeFullAddress/text()").evaluate(d,
+			m.put(CommonConstants.XPATH_EMPLOYEE_KEY_ID, (String) x.compile("//Employees/Employee[" + i + "]/EmployeeID/text()")
+					.evaluate(document, XPathConstants.STRING));
+			m.put(CommonConstants.XPATH_EMPLOYEE_NAME_KEY, (String) x.compile("//Employees/Employee[" + i + "]/EmployeeFullName/text()")
+					.evaluate(document, XPathConstants.STRING));
+			m.put(CommonConstants.XPATH_EMPLOYEE_ADDRESS_KEY,
+					(String) x.compile("//Employees/Employee[" + i + "]/EmployeeFullAddress/text()").evaluate(document,
 							XPathConstants.STRING));
-			m.put("XpathFacultyNameKey", (String) x.compile("//Employees/Employee[" + i + "]/FacultyName/text()")
-					.evaluate(d, XPathConstants.STRING));
-			m.put("XpathDepartmentKey", (String) x.compile("//Employees/Employee[" + i + "]/Department/text()")
-					.evaluate(d, XPathConstants.STRING));
-			m.put("XpathDesignationKey", (String) x.compile("//Employees/Employee[" + i + "]/Designation/text()")
-					.evaluate(d, XPathConstants.STRING));
+			m.put(CommonConstants.XPATH_EMPLOYEE_FACULTY_NAME, (String) x.compile("//Employees/Employee[" + i + "]/FacultyName/text()")
+					.evaluate(document, XPathConstants.STRING));
+			m.put(CommonConstants.XPATH_EMPLOYEE_DEPARTMENT_KEY, (String) x.compile("//Employees/Employee[" + i + "]/Department/text()")
+					.evaluate(document, XPathConstants.STRING));
+			m.put(CommonConstants.XPATH_EMPLOYEE_DESIGNATION_KEY, (String) x.compile("//Employees/Employee[" + i + "]/Designation/text()")
+					.evaluate(document, XPathConstants.STRING));
 			l.add(m);
 		}
 		return l;
