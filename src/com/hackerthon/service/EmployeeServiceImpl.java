@@ -26,27 +26,34 @@ public class EmployeeServiceImpl extends UtilC {
 	public void employeesFromXML() {
 
 		try {
-			
-			int size = UtilTRANSFORM.XMLXPATHS().size();
+
+			int size = UtilTRANSFORM.xmlxPaths().size();
 			
 			for (int i = 0; i < size; i++) {
 				
-				Map<String, String> l = UtilTRANSFORM.XMLXPATHS().get(i);
+				Map<String, String> employeesMap = UtilTRANSFORM.xmlxPaths().get(i);
 				
 				Employee employee = new Employee();
 				
-				employee.setEmployeeId(l.get("XpathEmployeeIDKey"));
-				employee.setFullName(l.get("XpathEmployeeNameKey"));
-				employee.setAddress(l.get("XpathEmployeeAddressKey"));
-				employee.setFacultyName(l.get("XpathFacultyNameKey"));
-				employee.setDepartment(l.get("XpathDepartmentKey"));
-				employee.setDesignation(l.get("XpathDesignationKey"));
+				employee.setEmployeeId(employeesMap.get(CommonConstants.XPATH_EMPLOYEE_ID_KEY));
+				employee.setFullName(employeesMap.get(CommonConstants.XPATH_EMPLOYEE_NAME_KEY));
+				employee.setAddress(employeesMap.get(CommonConstants.XPATH_EMPLOYEE_ADDRESS_KEY));
+				employee.setFacultyName(employeesMap.get(CommonConstants.XPATH_EMPLOYEE_FACULTY_NAME_KEY));
+				employee.setDepartment(employeesMap.get(CommonConstants.XPATH_EMPLOYEE_DEPARTMENT_KEY));
+				employee.setDesignation(employeesMap.get(CommonConstants.XPATH_EMPLOYEE_DESIGNATION_KEY));
 				
 				employeeList.add(employee);
 				
 				System.out.println(employee.toString() + "\n");
 			}
-		} catch (Exception e) {
+		} 
+		catch (IndexOutOfBoundsException e) {
+			log.log(Level.SEVERE, e.getMessage());
+		}
+		catch (ClassCastException e) {
+			log.log(Level.SEVERE, e.getMessage());
+		}
+		catch (NullPointerException e) {
 			log.log(Level.SEVERE, e.getMessage());
 		}
 	}
@@ -299,7 +306,7 @@ public class EmployeeServiceImpl extends UtilC {
 	public void printEmployee(ArrayList<Employee> employeeList){
 
 		System.out.printf(CommonConstants.EMPLOYEE_TABLE_COLUMNS);
-		System.out.println(CommonConstants.EMPLOYEE_TABLE_COLUMNS_BREAK_LINE);
+		System.out.println(CommonConstants.TABLE_COLUMNS_BREAK_LINE);
 		
 		for(int i = 0; i < employeeList.size(); i++){
 			
@@ -313,7 +320,7 @@ public class EmployeeServiceImpl extends UtilC {
 									employee.getDepartment(), 
 									employee.getDesignation());
 			
-			System.out.println(CommonConstants.EMPLOYEE_TABLE_ROW_BREAK_LINE);
+			System.out.println(CommonConstants.TABLE_ROW_BREAK_LINE);
 		}
 	}
 }
