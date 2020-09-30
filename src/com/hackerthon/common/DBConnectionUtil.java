@@ -1,11 +1,11 @@
 package com.hackerthon.common;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.SQLTimeoutException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * This Singleton class is for database connection for the project
@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  * @version 1.1
  */
 
-public class DBConnectionUtil extends UtilC {
+public class DBConnectionUtil extends CommonUtil {
 
 	private static Connection connection = null;
 	private static final Logger log = Logger.getLogger(DBConnectionUtil.class.getName());
@@ -27,12 +27,12 @@ public class DBConnectionUtil extends UtilC {
 		try {
 			if (connection == null || connection.isClosed()) {
 
-				Class.forName(p.getProperty(CommonConstants.DRIVER_NAME));
+				Class.forName(properties.getProperty(CommonConstants.DRIVER_NAME));
 
 				connection = DriverManager.getConnection(
-								p.getProperty(CommonConstants.URL), 
-								p.getProperty(CommonConstants.USERNAME),
-								p.getProperty(CommonConstants.PASSWORD));
+								properties.getProperty(CommonConstants.URL), 
+								properties.getProperty(CommonConstants.USERNAME),
+								properties.getProperty(CommonConstants.PASSWORD));
 			}
 		} 
 		catch (ClassNotFoundException e) {

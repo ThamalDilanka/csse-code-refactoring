@@ -1,5 +1,7 @@
 package com.hackerthon.model;
 
+import com.hackerthon.common.CommonConstants;
+
 public class Employee {
 
 	public String employeeId;
@@ -59,7 +61,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return String.format("Employee ID = %s\nFullName = %s\nAddress = %s\nFaculty Name = %s\nDepartment = %s\nDesignation = %s",
+		return String.format(CommonConstants.EMPLOYEE_TO_STRING_FORMAT,
 				employeeId, fullName, address, facultyName, department, designation);
 	}
 }

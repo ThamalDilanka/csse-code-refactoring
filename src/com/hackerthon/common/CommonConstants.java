@@ -64,19 +64,40 @@ public class CommonConstants {
 	public static final int COLUMN_INDEX_SIX = 6;
 	
 	/** Constant for columns of employee table */
-	public static final String EMPLOYEE_TABLE_COLUMNS = "Employee ID\t\tFull Name\t\tAddress\t\tFaculty Name\t\tDepartment\t\tDesignation\n%n";
+	public static final String EMPLOYEE_TABLE_COLUMNS = "Employee ID\t\tFull Name\t\t\tAddress\t\t\t\tFaculty Name\t\tDepartment\t\t\tDesignation\n%n";
+	
+	/** Constant for columns of employee table */
+	public static final String EMPLOYEE_TO_STRING_FORMAT = "Employee ID \t=\t %s\nFullName \t=\t %s\nAddress \t=\t %s\nFaculty Name \t=\t %s\nDepartment \t=\t %s\nDesignation \t=\t %s";
+	
+	/** Constant for columns of employee table */
+	public static final String EMPLOYEES_CREATE_TABLE_QUERY = "employees_create_table_query";
+	
+	/** Constant for columns of employee table */
+	public static final String EMPLOYEES_DROP_TABLE_QUERY = "employees_drop_table_query";
+	
+	/** Constant for columns of employee table */
+	public static final String EMPLOYEES_INSERT_DATA_QUERY = "employees_insert_data_query";
+	
+	/** Constant for columns of employee table */
+	public static final String EMPLOYEES_RETRIEVE_EMPLOYEE_QUERY = "employees_retrieve_employee_query";
+	
+	/** Constant for columns of employee table */
+	public static final String EMPLOYEES_RETRIEVE_ALL_EMPLOYEES_QUERY = "employees_retrieve_all_employees_query";
+	
+	/** Constant for columns of employee table */
+	public static final String EMPLOYEES_RETRIEVE_DELETE_EMPLOYEE_QUERY = "employees_delete_employee_query";
 	
 	/** Constant for cell order in a row of employee table */
-	public static final String EMPLOYEE_TABLE_COLUMN_ORDER_IN_ROW = "%s\t%s\t\t%s\t%s\t%s\t%s\n%n";
+	public static final String EMPLOYEE_TABLE_COLUMN_ORDER_IN_ROW = "%s\t\t%s\t\t%s\t\t%s\t\t%s\t\t%s\n%n";
 	
 	/** Constant for heading break line of employee table */
-	public static final String EMPLOYEE_TABLE_COLUMNS_BREAK_LINE = "=================================================================================================================================";
+	public static final String TABLE_COLUMNS_BREAK_LINE = "=================================================================================================================================";
 	
 	/** Constant for row break line of employee table */
-	public static final String EMPLOYEE_TABLE_ROW_BREAK_LINE = "-------------------------------------------------------------------------------------------------------------------------------------";
+	public static final String TABLE_ROW_BREAK_LINE = "-------------------------------------------------------------------------------------------------------------------------------------";
 
 	/** Constant for xpath employee id key*/
-	public static final String XPATH_EMPLOYEE_KEY_ID = "XpathEmployeeIDKey";
+	public static final String XPATH_EMPLOYEE_ID_KEY = "XpathEmployeeIDKey";
 	
 	/** Constant for xpath employee name key*/
 	public static final String XPATH_EMPLOYEE_NAME_KEY = "XpathEmployeeNameKey";
@@ -85,7 +106,7 @@ public class CommonConstants {
 	public static final String 	XPATH_EMPLOYEE_ADDRESS_KEY = "XpathEmployeeAddressKey";
 	
 	/**	Constant for xpath employee faculty name*/
-	public static final String  XPATH_EMPLOYEE_FACULTY_NAME = "XpathFacultyNameKey";
+	public static final String  XPATH_EMPLOYEE_FACULTY_NAME_KEY = "XpathFacultyNameKey";
 	
 	/** Constant for xpath employee department key*/
 	public static final String XPATH_EMPLOYEE_DEPARTMENT_KEY = "XpathDepartmentKey";
@@ -97,7 +118,7 @@ public class CommonConstants {
 	public static final String SRC_EMPLOYEE_XML_REQUEST = "src/com/hackerthon/config/EmployeeRequest.xml";
 	
 	/** Constant for file apth employee modified xsl*/
-	public static final String SRC_EMPLOYEE_XSL_MODIFIED = "src/com/hackerthon/config/Employee-modified.xsl";
+	public static final String SRC_EMPLOYEE_XSL_MODIFIED = "src/com/hackerthon/config/Employees.xsl";
 	
 	/** Constant for file path employee response xml*/
 	public static final String SRC_EMPLOYEE_XML_RESPONSE = "src/com/hackerthon/config/EmployeeResponse.xml";
@@ -125,7 +146,6 @@ public class CommonConstants {
 
 	/** Constant for employee designation compile path*/
 	public static final String COMPILE_EMOPLYEES_EMOPLYEE_DESIGNATION = "]/Designation/text()";
-	
 	
 	/** Constnt for file path query xml */
 	public static final String SRC_EMOPLOYEE_QUERY_XML= "src/com/hackerthon/config/EmployeeQuery.xml";
