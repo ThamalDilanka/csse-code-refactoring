@@ -1,7 +1,7 @@
 package com.hackerthon.common;
 
 /**
- * This class contains common constants for the project
+ * This class contains all the common constants for the project
  * 
  * @author Kavindu Tharaka
  * @version 1.1
