@@ -1,7 +1,7 @@
 package com.hackerthon.main;
 
 import com.hackerthon.common.TransformUtil;
-import com.hackerthon.service.EmployeeServiceImpl;
+import com.hackerthon.service.EmployeeService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.transform.TransformerFactoryConfigurationError;
@@ -12,7 +12,7 @@ public class ExecuteMain {
 
 		final Logger log = Logger.getLogger(TransformUtil.class.getName());
 		
-		EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
+		EmployeeService employeeService = new EmployeeService();
 		
 		try {
 			TransformUtil.requestTransform();

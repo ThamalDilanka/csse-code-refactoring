@@ -18,13 +18,27 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Map;
 
-public class EmployeeServiceImpl extends CommonUtil {
+/**
+ * This class is employee related database operations of the project
+ * 
+ * @author Kavindu Tharaka
+ * @version 1.1
+ */
+
+public class EmployeeService extends CommonUtil {
 
 	private final ArrayList<Employee> employeeList = new ArrayList<Employee>();
 	private final Logger log = Logger.getLogger(DBConnectionUtil.class.getName());
 
+	/**
+	 * This get employees data from xml file, display them
+	 * and add employees to the ArrayList type employeeList object.
+	 * 
+	 * @return void
+	 * 
+	 * @see #xmlxPaths()
+	 */
 	public void employeesFromXML() {
-
 		try {
 			int size = TransformUtil.xmlxPaths().size();
 			
@@ -57,6 +71,17 @@ public class EmployeeServiceImpl extends CommonUtil {
 		}
 	}
 
+	/**
+	 * This creates employee table in database. If table already exist
+	 * drop it and create new one.
+	 * 
+	 * @return void
+	 * 
+	 * @see #getDBConnection()
+	 * @see #query(String)
+	 * @see Connection
+	 * @see Statement
+	 */
 	public void createEmployeesTable() {
 		
 		Connection connection = null;
@@ -95,6 +120,16 @@ public class EmployeeServiceImpl extends CommonUtil {
 		}
 	}
 
+	/**
+	 * This add employee to the employees table in database.
+	 * 
+	 * @return void
+	 * 
+	 * @see #getDBConnection()
+	 * @see #query(String)
+	 * @see Connection
+	 * @see PreparedStatement
+	 */
 	public void addEmployee() {
 		
 		Connection connection = null;
@@ -156,6 +191,19 @@ public class EmployeeServiceImpl extends CommonUtil {
 
 	}
 
+	/**
+	 * This retrieve an employee by employee's ID from the employees table in database.
+	 * 
+	 * @param employeeId
+	 * 				ID of the employee need to be retrieved
+	 * 
+	 * @return void
+	 * 
+	 * @see #getDBConnection()
+	 * @see #query(String)
+	 * @see Connection
+	 * @see PreparedStatement
+	 */
 	public void getEmployeeById(String employeeId) {
 		
 		Connection connection = null;
@@ -209,6 +257,19 @@ public class EmployeeServiceImpl extends CommonUtil {
 		}
 	}
 
+	/**
+	 * This delete an employee by employee's ID from the employees table in database.
+	 * 
+	 * @param employeeId
+	 * 				ID of the employee need to be retrieved
+	 * 
+	 * @return void
+	 * 
+	 * @see #getDBConnection()
+	 * @see #query(String)
+	 * @see Connection
+	 * @see PreparedStatement
+	 */
 	public void deleteEmployee(String employeeId) {
 		
 		Connection connection = null;
@@ -248,6 +309,18 @@ public class EmployeeServiceImpl extends CommonUtil {
 
 	}
 
+	/**
+	 * This display all the employees in the employees table in database.
+	 * 
+	 * @return void
+	 * 
+	 * @see #getDBConnection()
+	 * @see #query(String)
+	 * @see #printEmployee(ArrayList<Employee>)
+	 * @see Connection
+	 * @see PreparedStatement
+	 * @see ResultSet
+	 */
 	public void displayEmployee() {
 		
 		Connection connection = null;
@@ -302,6 +375,17 @@ public class EmployeeServiceImpl extends CommonUtil {
 		printEmployee(employees);
 	}
 	
+	/**
+	 * This wrap up few of the above methods
+	 * to get the behaviour of the Template method design pattern.
+	 * 
+	 * @return void
+	 * 
+	 * @see #employeesFromXML()
+	 * @see #createEmployeesTable()
+	 * @see #addEmployee()
+	 * @see #displayEmployee()
+	 */
 	public final void employeeTableTransactions() {
 		employeesFromXML();
 		createEmployeesTable();
@@ -309,6 +393,14 @@ public class EmployeeServiceImpl extends CommonUtil {
 		displayEmployee();
 	}
 	
+	/**
+	 * This display all the employees in the employees table in database.
+	 * 
+	 * @param employeeList
+	 * 				List of employees to be displayed
+	 * 
+	 * @return void
+	 */
 	public void printEmployee(ArrayList<Employee> employeeList){
 
 		System.out.printf(CommonConstants.EMPLOYEE_TABLE_COLUMNS);

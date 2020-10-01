@@ -11,7 +11,7 @@ import java.sql.SQLTimeoutException;
  * This Singleton class is for database connection for the project
  * 
  * @author Kavindu Tharaka
- * @version 1.1
+ * @version 1.0
  */
 
 public class DBConnectionUtil extends CommonUtil {
@@ -23,6 +23,11 @@ public class DBConnectionUtil extends CommonUtil {
 		
 	}
 
+	/**
+	 * This create connection with database.
+	 * 
+	 * @return Connection - Connection type Object will be returned.
+	 */
 	public static Connection getDBConnection(){
 		try {
 			if (connection == null || connection.isClosed()) {

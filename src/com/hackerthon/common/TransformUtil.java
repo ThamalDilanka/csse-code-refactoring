@@ -34,19 +34,24 @@ public class TransformUtil extends CommonUtil {
 		final Logger log = Logger.getLogger(TransformUtil.class.getName());
 		try {
 			Source requestSource = new StreamSource(new File(CommonConstants.SRC_EMPLOYEE_XML_REQUEST));
-			Source modifiedSource = new StreamSource(new File(CommonConstants.SRC_EMPLOYEE_XSL_MODIFIED));
+			Source modifiedSource = new StreamSource(new File(CommonConstants.SRC_EMPLOYEE_XSL));
 			Result responseSource = new StreamResult(new File(CommonConstants.SRC_EMPLOYEE_XML_RESPONSE));
-			TransformerFactory.newInstance().newTransformer(modifiedSource).transform(requestSource, responseSource);
-		} catch (NullPointerException e) {
-			log.log(Level.SEVERE, e.getMessage());
-		} catch (TransformerConfigurationException e) {
 			
+			TransformerFactory
+			.newInstance()
+			.newTransformer(modifiedSource)
+			.transform(requestSource, responseSource);			
+		} 
+		catch (NullPointerException e) {
 			log.log(Level.SEVERE, e.getMessage());
-		} catch (TransformerException e) {
-			
+		} 
+		catch (TransformerConfigurationException e) {			
 			log.log(Level.SEVERE, e.getMessage());
-		} catch (TransformerFactoryConfigurationError e) {
-			
+		} 
+		catch (TransformerException e) {			
+			log.log(Level.SEVERE, e.getMessage());
+		} 
+		catch (TransformerFactoryConfigurationError e) {
 			log.log(Level.SEVERE, e.getMessage());
 		}		
 	}
@@ -83,17 +88,17 @@ public class TransformUtil extends CommonUtil {
 			}
 			return employeeList;
 			
-		} catch (XPathException e) {
-			 
+		} 
+		catch (XPathException e) {			 
 			log.log(Level.SEVERE, e.getMessage());
-		} catch (SAXException e) {
-			 
+		} 
+		catch (SAXException e) {			 
 			log.log(Level.SEVERE, e.getMessage());
-		} catch (IOException e) {
-			 
+		} 
+		catch (IOException e) {			 
 			log.log(Level.SEVERE, e.getMessage());
-		} catch (ParserConfigurationException e) {
-			 
+		} 
+		catch (ParserConfigurationException e) {			 
 			log.log(Level.SEVERE, e.getMessage());
 		}
 		return null;

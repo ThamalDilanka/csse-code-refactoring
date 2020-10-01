@@ -118,7 +118,7 @@ public class CommonConstants {
 	public static final String SRC_EMPLOYEE_XML_REQUEST = "src/com/hackerthon/config/EmployeeRequest.xml";
 	
 	/** Constant for file apth employee modified xsl*/
-	public static final String SRC_EMPLOYEE_XSL_MODIFIED = "src/com/hackerthon/config/Employees.xsl";
+	public static final String SRC_EMPLOYEE_XSL = "src/com/hackerthon/config/Employees.xsl";
 	
 	/** Constant for file path employee response xml*/
 	public static final String SRC_EMPLOYEE_XML_RESPONSE = "src/com/hackerthon/config/EmployeeResponse.xml";
