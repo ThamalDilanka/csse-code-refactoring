@@ -16,10 +16,8 @@ import javax.xml.transform.TransformerFactoryConfigurationError;
 public class ExecuteMain {
 
 	public static void main(String[] args) {
-/**
- * entry point
- * with instance to EmployeeServiceImpl
- */
+
+		//Logger for logging the necessary messages
 		final Logger log = Logger.getLogger(TransformUtil.class.getName());
 		
 		EmployeeService employeeService = new EmployeeService();

@@ -45,9 +45,9 @@ public class TransformUtil extends CommonUtil {
 		
 		final Logger log = Logger.getLogger(TransformUtil.class.getName());
 		try {
-			Source requestSource = new StreamSource(new File(CommonConstants.SRC_EMPLOYEE_XML_REQUEST));
-			Source modifiedSource = new StreamSource(new File(CommonConstants.SRC_EMPLOYEE_XSL));
-			Result responseSource = new StreamResult(new File(CommonConstants.SRC_EMPLOYEE_XML_RESPONSE));
+			Source requestSource = new StreamSource(new File(properties.getProperty(CommonConstants.SRC_EMPLOYEE_XML_REQUEST)));
+			Source modifiedSource = new StreamSource(new File(properties.getProperty(CommonConstants.SRC_EMPLOYEE_XSL)));
+			Result responseSource = new StreamResult(new File(properties.getProperty(CommonConstants.SRC_EMPLOYEE_XML_RESPONSE)));
 			TransformerFactory.newInstance().newTransformer(modifiedSource).transform(requestSource, responseSource);
 		} catch (NullPointerException e) {
 			log.log(Level.SEVERE, e.getMessage());
@@ -73,7 +73,7 @@ public class TransformUtil extends CommonUtil {
 		try {
 			Document document = DocumentBuilderFactory
 									.newInstance().newDocumentBuilder()
-									.parse(CommonConstants.SRC_EMPLOYEE_XML_RESPONSE);
+									.parse(properties.getProperty(CommonConstants.SRC_EMPLOYEE_XML_RESPONSE));
 			XPath xPathInstance = XPathFactory
 									.newInstance()
 									.newXPath();

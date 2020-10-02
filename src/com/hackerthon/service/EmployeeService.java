@@ -40,25 +40,29 @@ public class EmployeeService extends CommonUtil {
 	 */
 	public void employeesFromXML() {
 		try {
-			int size = TransformUtil.xmlxPaths().size();
 			
-			for (int i = 0; i < size; i++) {
-				
-				Map<String, String> employeesMap = TransformUtil.xmlxPaths().get(i);
+			for (Map<String, String> employeesMap : TransformUtil.xmlxPaths()) {
 				
 				Employee employee = new Employee();
 				
-				employee.setEmployeeId(employeesMap.get(CommonConstants.XPATH_EMPLOYEE_ID_KEY));
-				employee.setFullName(employeesMap.get(CommonConstants.XPATH_EMPLOYEE_NAME_KEY));
-				employee.setAddress(employeesMap.get(CommonConstants.XPATH_EMPLOYEE_ADDRESS_KEY));
-				employee.setFacultyName(employeesMap.get(CommonConstants.XPATH_EMPLOYEE_FACULTY_NAME_KEY));
-				employee.setDepartment(employeesMap.get(CommonConstants.XPATH_EMPLOYEE_DEPARTMENT_KEY));
-				employee.setDesignation(employeesMap.get(CommonConstants.XPATH_EMPLOYEE_DESIGNATION_KEY));
+				employee.setEmployeeId(employeesMap
+						.get(CommonConstants.XPATH_EMPLOYEE_ID_KEY));
+				employee.setFullName(employeesMap
+						.get(CommonConstants.XPATH_EMPLOYEE_NAME_KEY));
+				employee.setAddress(employeesMap
+						.get(CommonConstants.XPATH_EMPLOYEE_ADDRESS_KEY));
+				employee.setFacultyName(employeesMap
+						.get(CommonConstants.XPATH_EMPLOYEE_FACULTY_NAME_KEY));
+				employee.setDepartment(employeesMap
+						.get(CommonConstants.XPATH_EMPLOYEE_DEPARTMENT_KEY));
+				employee.setDesignation(employeesMap
+						.get(CommonConstants.XPATH_EMPLOYEE_DESIGNATION_KEY));
 				
 				employeeList.add(employee);
 				
-				System.out.println(employee.toString() + "\n");
+				log.info("\n" + employee.toString() + "\n");
 			}
+			
 		} 
 		catch (IndexOutOfBoundsException e) {
 			log.log(Level.SEVERE, e.getMessage());
@@ -137,12 +141,12 @@ public class EmployeeService extends CommonUtil {
 		
 		try {
 			connection = DBConnectionUtil.getDBConnection();			
-			preparedStatement = connection.prepareStatement(QueryUtil.query(CommonConstants.EMPLOYEES_INSERT_DATA_QUERY));
+			preparedStatement = connection.prepareStatement(QueryUtil
+					.query(CommonConstants.EMPLOYEES_INSERT_DATA_QUERY));
+			
 			connection.setAutoCommit(false);
 			
-			for(int i = 0; i < employeeList.size(); i++){
-				
-				Employee employee = employeeList.get(i);
+			for (Employee employee : employeeList) {
 				
 				preparedStatement.setString(CommonConstants.COLUMN_INDEX_ONE, employee.getEmployeeId());
 				preparedStatement.setString(CommonConstants.COLUMN_INDEX_TWO, employee.getFullName());
@@ -213,7 +217,9 @@ public class EmployeeService extends CommonUtil {
 
 		try {
 			connection = DBConnectionUtil.getDBConnection();
-			preparedStatement = connection.prepareStatement(QueryUtil.query(CommonConstants.EMPLOYEES_RETRIEVE_EMPLOYEE_QUERY));
+			preparedStatement = connection.prepareStatement(QueryUtil
+					.query(CommonConstants.EMPLOYEES_RETRIEVE_EMPLOYEE_QUERY));
+			
 			preparedStatement.setString(CommonConstants.COLUMN_INDEX_ONE, employeeId);
 			
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -277,7 +283,9 @@ public class EmployeeService extends CommonUtil {
 		
 		try {
 			connection = DBConnectionUtil.getDBConnection();
-			preparedStatement = connection.prepareStatement(QueryUtil.query(CommonConstants.EMPLOYEES_RETRIEVE_DELETE_EMPLOYEE_QUERY));
+			preparedStatement = connection.prepareStatement(QueryUtil
+					.query(CommonConstants.EMPLOYEES_RETRIEVE_DELETE_EMPLOYEE_QUERY));
+			
 			preparedStatement.setString(CommonConstants.COLUMN_INDEX_ONE, employeeId);
 			preparedStatement.executeUpdate();
 		} 
@@ -329,7 +337,8 @@ public class EmployeeService extends CommonUtil {
 		
 		try {
 			connection = DBConnectionUtil.getDBConnection();
-			preparedStatement = connection.prepareStatement(QueryUtil.query(CommonConstants.EMPLOYEES_RETRIEVE_ALL_EMPLOYEES_QUERY));
+			preparedStatement = connection.prepareStatement(QueryUtil
+					.query(CommonConstants.EMPLOYEES_RETRIEVE_ALL_EMPLOYEES_QUERY));
 			
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
@@ -405,19 +414,16 @@ public class EmployeeService extends CommonUtil {
 
 		System.out.printf(CommonConstants.EMPLOYEE_TABLE_COLUMNS);
 		System.out.println(CommonConstants.TABLE_COLUMNS_BREAK_LINE);
-		
-		for(int i = 0; i < employeeList.size(); i++){
-			
-			Employee employee = employeeList.get(i);
-			
+				
+		for (Employee employee : employeeList) {
 			System.out.printf(CommonConstants.EMPLOYEE_TABLE_COLUMN_ORDER_IN_ROW,
-									employee.getEmployeeId(), 
-									employee.getFullName(), 
-									employee.getAddress(), 
-									employee.getFacultyName(), 
-									employee.getDepartment(), 
-									employee.getDesignation());
-			
+					employee.getEmployeeId(), 
+					employee.getFullName(), 
+					employee.getAddress(), 
+					employee.getFacultyName(), 
+					employee.getDepartment(), 
+					employee.getDesignation());
+
 			System.out.println(CommonConstants.TABLE_ROW_BREAK_LINE);
 		}
 	}
