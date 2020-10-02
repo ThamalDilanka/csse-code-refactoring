@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import java.util.Properties;
 /**
  * Contains common utilities 
- * 
+ * z
  * @author Chamod Rathnayake
  * @version 1.1
  */

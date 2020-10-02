@@ -39,7 +39,7 @@ public class QueryUtil extends CommonUtil {
 			NodeList nodeList;
 			Element element = null;
 			nodeList = DocumentBuilderFactory.newInstance().newDocumentBuilder()
-					.parse(new File(CommonConstants.SRC_EMOPLOYEE_QUERY_XML))
+					.parse(new File(properties.getProperty(CommonConstants.SRC_EMOPLOYEE_QUERY_XML)))
 					.getElementsByTagName(CommonConstants.TAG_NAME);
 			
 			for (int x = 0; x < nodeList.getLength(); x++) {
@@ -47,6 +47,7 @@ public class QueryUtil extends CommonUtil {
 				if(element.getAttribute(CommonConstants.ATTRIBUTE_ID).equals(id))
 					break;
 			}
+			
 			return element.getTextContent().trim();
 		}
 		catch (SAXException e) {

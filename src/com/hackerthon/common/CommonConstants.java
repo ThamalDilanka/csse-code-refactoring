@@ -4,7 +4,7 @@ package com.hackerthon.common;
  * This class contains all the common constants for the project
  * 
  * @author Kavindu Tharaka
- * @version 1.1
+ * @version 1.0
  */
 
 public class CommonConstants {
@@ -36,15 +36,6 @@ public class CommonConstants {
 	/** Constant for driver name key of MYSQL database in config.properties */
 	public static final String DRIVER_NAME = "driverName";
 	
-	/** Constant for query id of drop_table in EmployeeQuery.xml */
-	public static final String QUERY_ID_DROP_TABLE = "drop_table";
-	
-	/** Constant for query id of create_table in EmployeeQuery.xml */
-	public static final String QUERY_ID_CREATE_TABLE = "create_employee_table";
-	
-	/** Constant for query id of insert employees in EmployeeQuery.xml */
-	public static final String QUERY_ID_INSERT_EMPLOYEES = "insert_employee";
-	
 	/** Constant for column index one */
 	public static final int COLUMN_INDEX_ONE = 1;
 	
@@ -69,22 +60,22 @@ public class CommonConstants {
 	/** Constant for columns of employee table */
 	public static final String EMPLOYEE_TO_STRING_FORMAT = "Employee ID \t=\t %s\nFullName \t=\t %s\nAddress \t=\t %s\nFaculty Name \t=\t %s\nDepartment \t=\t %s\nDesignation \t=\t %s";
 	
-	/** Constant for columns of employee table */
+	/** Constant for query id of create_table in EmployeeQuery.xml */
 	public static final String EMPLOYEES_CREATE_TABLE_QUERY = "employees_create_table_query";
 	
-	/** Constant for columns of employee table */
+	/** Constant for query id of drop_table in EmployeeQuery.xml */
 	public static final String EMPLOYEES_DROP_TABLE_QUERY = "employees_drop_table_query";
 	
-	/** Constant for columns of employee table */
+	/** Constant for query id of insert employee in EmployeeQuery.xml */
 	public static final String EMPLOYEES_INSERT_DATA_QUERY = "employees_insert_data_query";
 	
-	/** Constant for columns of employee table */
+	/** Constant for query id of retrieve an employee in EmployeeQuery.xml */
 	public static final String EMPLOYEES_RETRIEVE_EMPLOYEE_QUERY = "employees_retrieve_employee_query";
 	
-	/** Constant for columns of employee table */
+	/** Constant for query id of retrieve all employees in EmployeeQuery.xml */
 	public static final String EMPLOYEES_RETRIEVE_ALL_EMPLOYEES_QUERY = "employees_retrieve_all_employees_query";
 	
-	/** Constant for columns of employee table */
+	/** Constant for query id of delete employee in EmployeeQuery.xml */
 	public static final String EMPLOYEES_RETRIEVE_DELETE_EMPLOYEE_QUERY = "employees_delete_employee_query";
 	
 	/** Constant for cell order in a row of employee table */
@@ -97,31 +88,31 @@ public class CommonConstants {
 	public static final String TABLE_ROW_BREAK_LINE = "-------------------------------------------------------------------------------------------------------------------------------------";
 
 	/** Constant for xpath employee id key*/
-	public static final String XPATH_EMPLOYEE_ID_KEY = "XpathEmployeeIDKey";
+	public static final String XPATH_EMPLOYEE_ID_KEY = "xpath_employee_id";
 	
 	/** Constant for xpath employee name key*/
-	public static final String XPATH_EMPLOYEE_NAME_KEY = "XpathEmployeeNameKey";
+	public static final String XPATH_EMPLOYEE_NAME_KEY = "xpath_employee_name";
 	
 	/** Constant for xpath emoplyee address ke*/
-	public static final String 	XPATH_EMPLOYEE_ADDRESS_KEY = "XpathEmployeeAddressKey";
+	public static final String 	XPATH_EMPLOYEE_ADDRESS_KEY = "xpath_employee_address";
 	
 	/**	Constant for xpath employee faculty name*/
-	public static final String  XPATH_EMPLOYEE_FACULTY_NAME_KEY = "XpathFacultyNameKey";
+	public static final String  XPATH_EMPLOYEE_FACULTY_NAME_KEY = "xpath_employee_faculty_name";
 	
 	/** Constant for xpath employee department key*/
-	public static final String XPATH_EMPLOYEE_DEPARTMENT_KEY = "XpathDepartmentKey";
+	public static final String XPATH_EMPLOYEE_DEPARTMENT_KEY = "xpath_employee_department";
 
 	/** Constant for xpath employee designation key*/
-	public static final String XPATH_EMPLOYEE_DESIGNATION_KEY = "XpathDesignationKey";
+	public static final String XPATH_EMPLOYEE_DESIGNATION_KEY = "xpath_employee_designation";
 
 	/** Constant for file path employee request xml*/
-	public static final String SRC_EMPLOYEE_XML_REQUEST = "src/com/hackerthon/config/EmployeeRequest.xml";
+	public static final String SRC_EMPLOYEE_XML_REQUEST = "src_employee_xml_request";
 	
-	/** Constant for file apth employee modified xsl*/
-	public static final String SRC_EMPLOYEE_XSL = "src/com/hackerthon/config/Employees.xsl";
+	/** Constant for file path employee modified xsl*/
+	public static final String SRC_EMPLOYEE_XSL = "src_employee_xsl";
 	
 	/** Constant for file path employee response xml*/
-	public static final String SRC_EMPLOYEE_XML_RESPONSE = "src/com/hackerthon/config/EmployeeResponse.xml";
+	public static final String SRC_EMPLOYEE_XML_RESPONSE = "src_employee_xml_response";
 	
 	/** Constant for count compile path*/
 	public static final String COMPLIE_COUNT_EMPLOYEE = "count(//Employees/Employee)";
@@ -132,7 +123,7 @@ public class CommonConstants {
 	/** Constant for employee id compile path*/
 	public static final String COMPILE_EMOPLYEES_EMOPLYEE_ID = "]/EmployeeID/text()";
 	
-	/** Constant for emoplyee name compile path*/
+	/** Constant for employee name compile path*/
 	public static final String COMPILE_EMOPLYEES_EMOPLYEE_NAME = "]/EmployeeFullName/text()";
 	
 	/** Constant for employee address compile path*/
@@ -147,6 +138,6 @@ public class CommonConstants {
 	/** Constant for employee designation compile path*/
 	public static final String COMPILE_EMOPLYEES_EMOPLYEE_DESIGNATION = "]/Designation/text()";
 	
-	/** Constnt for file path query xml */
-	public static final String SRC_EMOPLOYEE_QUERY_XML= "src/com/hackerthon/config/EmployeeQuery.xml";
+	/** Constant for file path query xml */
+	public static final String SRC_EMOPLOYEE_QUERY_XML= "src_emoployee_query_xml";
 }
