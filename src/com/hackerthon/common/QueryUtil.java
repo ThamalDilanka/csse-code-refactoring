@@ -1,5 +1,12 @@
 package com.hackerthon.common;
 
+/**
+ * This class contains all the common constants for the project
+ * 
+ * @author Thamal Dilanka
+ * @version 1.1
+ */
+
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -11,11 +18,26 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class QueryUtil extends CommonUtil {
+
+	/**
+	 * this method string type id and capeares it with the list of id values retrieved from the EmployeeQuery.xml
+	 * @param id
+	 * @return mathed id s
+	 */
 	
 	public static String query(String id){
+
+		/**
+		 * get logger to return the name of the entity
+		 * final - no need to change the logger over the lifetime of the class
+		 */
 		final Logger log = Logger.getLogger(TransformUtil.class.getName());
 		try {
-			NodeList nodeList; Element element = null;
+			/**
+			 * this method read elements in employeeQuery.xml compares it with parameted passed to this class
+			 */
+			NodeList nodeList;
+			Element element = null;
 			nodeList = DocumentBuilderFactory.newInstance().newDocumentBuilder()
 					.parse(new File(CommonConstants.SRC_EMOPLOYEE_QUERY_XML))
 					.getElementsByTagName(CommonConstants.TAG_NAME);

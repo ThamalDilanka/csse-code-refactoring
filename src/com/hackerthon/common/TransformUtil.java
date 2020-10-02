@@ -1,5 +1,12 @@
 package com.hackerthon.common;
 
+/**
+ * This class contains all the common constants for the project
+ * 
+ * @author Dinuka Sameera
+ * @version 1.1
+ */
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,32 +37,37 @@ public class TransformUtil extends CommonUtil {
 
 	private static Map<String, String> employeeMap = null;
 	
+	/**
+	 * this method reads the EmployeeRequest.xml,Employeeresponse.xml,Employees.xsl files and 
+	 * transform xml with xslt
+	 */
 	public static void requestTransform()   {
+		
 		final Logger log = Logger.getLogger(TransformUtil.class.getName());
 		try {
 			Source requestSource = new StreamSource(new File(CommonConstants.SRC_EMPLOYEE_XML_REQUEST));
 			Source modifiedSource = new StreamSource(new File(CommonConstants.SRC_EMPLOYEE_XSL));
 			Result responseSource = new StreamResult(new File(CommonConstants.SRC_EMPLOYEE_XML_RESPONSE));
+			TransformerFactory.newInstance().newTransformer(modifiedSource).transform(requestSource, responseSource);
+		} catch (NullPointerException e) {
+			log.log(Level.SEVERE, e.getMessage());
+		} catch (TransformerConfigurationException e) {
 			
-			TransformerFactory
-			.newInstance()
-			.newTransformer(modifiedSource)
-			.transform(requestSource, responseSource);			
-		} 
-		catch (NullPointerException e) {
 			log.log(Level.SEVERE, e.getMessage());
-		} 
-		catch (TransformerConfigurationException e) {			
+		} catch (TransformerException e) {
+			
 			log.log(Level.SEVERE, e.getMessage());
-		} 
-		catch (TransformerException e) {			
-			log.log(Level.SEVERE, e.getMessage());
-		} 
-		catch (TransformerFactoryConfigurationError e) {
+		} catch (TransformerFactoryConfigurationError e) {
+			
 			log.log(Level.SEVERE, e.getMessage());
 		}		
 	}
 
+	/**
+	 * XmlPath is an alternative to using XPath for easily getting values from an XML document.
+	 * extract each field as a string array 						-
+	 * @return list of employees in xml files
+	 */
 	public static ArrayList<Map<String, String>> xmlxPaths()   {
 		final  Logger log = Logger.getLogger(DBConnectionUtil.class.getName());
 		try {
@@ -88,17 +100,17 @@ public class TransformUtil extends CommonUtil {
 			}
 			return employeeList;
 			
-		} 
-		catch (XPathException e) {			 
+		} catch (XPathException e) {
+			 
 			log.log(Level.SEVERE, e.getMessage());
-		} 
-		catch (SAXException e) {			 
+		} catch (SAXException e) {
+			 
 			log.log(Level.SEVERE, e.getMessage());
-		} 
-		catch (IOException e) {			 
+		} catch (IOException e) {
+			 
 			log.log(Level.SEVERE, e.getMessage());
-		} 
-		catch (ParserConfigurationException e) {			 
+		} catch (ParserConfigurationException e) {
+			 
 			log.log(Level.SEVERE, e.getMessage());
 		}
 		return null;

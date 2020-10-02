@@ -1,7 +1,12 @@
 package com.hackerthon.model;
 
 import com.hackerthon.common.CommonConstants;
-
+/**
+ * class stores details about the employees
+ * 
+ * @author Thamal Dilanka
+ * @version 1.1
+ */
 public class Employee {
 
 	public String employeeId;
@@ -59,6 +64,11 @@ public class Employee {
 		this.designation = designation;
 	}
 
+	/**
+	 * This returns a string represenataion all inctance types
+	 * 
+	 * @return String
+	 */
 	@Override
 	public String toString() {
 		return String.format(CommonConstants.EMPLOYEE_TO_STRING_FORMAT,
